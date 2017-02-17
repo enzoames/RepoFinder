@@ -20,10 +20,6 @@ Here's a walkthrough of of the app
 
 ![Alt text](https://github.com/enzoames/RepoFinder/blob/master/RepoFinder/RepoFinder.gif)
 
-## Notes
-
-Describe any challenges encountered while building the app.
-
 ## License
 
     Copyright [2017] [Enzo Ames]
