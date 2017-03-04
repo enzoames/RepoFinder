@@ -10,12 +10,15 @@ import UIKit
 import MBProgressHUD
 
 // Main ViewController
-class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SettingsPresentingViewControllerDelegate {
 
     var searchBar: UISearchBar!
-    var searchSettings = GithubRepoSearchSettings()
+    var searchSettings = GithubRepoSearchSettings(minstars: 0, search: nil)
 
+    
     var repos: [GithubRepo]!
+    
+    var startsNumber: Int?
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -53,9 +56,9 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
 
             // Print the returned repositories to the output window
             
-            for repo in newRepos {
-                print(repo)
-            }   
+//            for repo in newRepos {
+//                print(repo)
+//            }   
             
             self.repos = newRepos
             
@@ -63,8 +66,22 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
             
             MBProgressHUD.hide(for: self.view, animated: true)
             }, error: { (error) -> Void in
-                print(error)
+                print("Error: \(error?.localizedDescription)")
         })
+    }
+    
+    func didSaveSettings(settings: GithubRepoSearchSettings) {
+        self.searchSettings = settings
+        print("BACK TO REPO RESULTS VIEW CONTROLLER WITH SETTINGS: \(settings)")
+        if(settings.searchString != nil) {
+            doSearch()
+        } else {
+            print("settings string nil")
+        }
+    }
+    
+    func didCancelSettings() {
+        //Nothing. Don't save what the user did over there.
     }
     
     //|||||||||||||||||||||||||||||||||||||||||
@@ -98,6 +115,27 @@ class RepoResultsViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    //|||||||||||||||||||||||||||||||||||||||||
+    //||||||||||PUSH FOR SEGUE|||||||||||||||||
+    //|||||||||||||||||||||||||||||||||||||||||
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let navController = segue.destination as! UINavigationController
+        let vc = navController.topViewController as! SettingsViewController
+        
+        //Passing the previous search information to the SettingsViewController
+        vc.settings = self.searchSettings //.searchSettings refers to GithubRepoSearchSettings
+        
+        print(vc.settings?.minStars)
+        vc.searchString = searchBar.text
+        print("PREPARE FOR SEGUE. STRING BEING PASSED: \(vc.searchString)")
+        vc.delegate = self
+
+    }
+    
+    
+    
     
 }
 
@@ -125,6 +163,8 @@ extension RepoResultsViewController: UISearchBarDelegate {
         doSearch()
     }
 }
+
+
 
 
 

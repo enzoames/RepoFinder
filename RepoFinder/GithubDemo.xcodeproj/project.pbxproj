@@ -17,6 +17,7 @@
 		6B2DDF041B02911A00D25281 /* GithubDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2DDF031B02911A00D25281 /* GithubDemoTests.swift */; };
 		6B2DDF0E1B02970A00D25281 /* GithubRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2DDF0D1B02970A00D25281 /* GithubRepo.swift */; };
 		6B9F8B0A1B02B8E5001483E7 /* GithubRepoSearchSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9F8B091B02B8E4001483E7 /* GithubRepoSearchSettings.swift */; };
+		C6BCFE351E67997500C78291 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BCFE341E67997500C78291 /* SettingsViewController.swift */; };
 		C6CD739F1E56167E0077BB77 /* ReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD739E1E56167E0077BB77 /* ReposCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		6B2DDF0D1B02970A00D25281 /* GithubRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepo.swift; sourceTree = "<group>"; };
 		6B9F8B091B02B8E4001483E7 /* GithubRepoSearchSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubRepoSearchSettings.swift; sourceTree = "<group>"; };
 		C31B77F051ECB4734B31A292 /* Pods_GithubDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6BCFE341E67997500C78291 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C6CD739E1E56167E0077BB77 /* ReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReposCell.swift; sourceTree = "<group>"; };
 		D5EDD6C651F700BECD821A77 /* Pods-GithubDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GithubDemo/Pods-GithubDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		D787DCA4BDFFA74DC9217E77 /* Pods-GithubDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-GithubDemo/Pods-GithubDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,11 +119,11 @@
 		6B2DDEEA1B02911A00D25281 /* GithubDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C681496D1E5A873800ECA5C9 /* View Controller */,
 				C6CD739D1E5616560077BB77 /* Cell */,
+				C681496F1E5A8CC800ECA5C9 /* Search */,
+				C6BCFE331E67995100C78291 /* API */,
 				6B2DDEED1B02911A00D25281 /* AppDelegate.swift */,
-				6B2DDEEF1B02911A00D25281 /* RepoResultsViewController.swift */,
-				6B2DDF0D1B02970A00D25281 /* GithubRepo.swift */,
-				6B9F8B091B02B8E4001483E7 /* GithubRepoSearchSettings.swift */,
 				6B2DDEF11B02911A00D25281 /* Main.storyboard */,
 				6B2DDEF41B02911A00D25281 /* Images.xcassets */,
 				6B2DDEF61B02911A00D25281 /* LaunchScreen.xib */,
@@ -153,6 +155,31 @@
 				6B2DDF021B02911A00D25281 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C681496D1E5A873800ECA5C9 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B2DDEEF1B02911A00D25281 /* RepoResultsViewController.swift */,
+				C6BCFE341E67997500C78291 /* SettingsViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		C681496F1E5A8CC800ECA5C9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B9F8B091B02B8E4001483E7 /* GithubRepoSearchSettings.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		C6BCFE331E67995100C78291 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6B2DDF0D1B02970A00D25281 /* GithubRepo.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 		C6CD739D1E5616560077BB77 /* Cell */ = {
@@ -371,6 +398,7 @@
 				6B2DDEEE1B02911A00D25281 /* AppDelegate.swift in Sources */,
 				6B2DDF0E1B02970A00D25281 /* GithubRepo.swift in Sources */,
 				C6CD739F1E56167E0077BB77 /* ReposCell.swift in Sources */,
+				C6BCFE351E67997500C78291 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
